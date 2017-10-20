@@ -1,0 +1,60 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Attachment $attachment
+ */
+?>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('Edit Attachment'), ['action' => 'edit', $attachment->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Attachment'), ['action' => 'delete', $attachment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $attachment->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List Attachments'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Attachment'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Students'), ['controller' => 'Students', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Student'), ['controller' => 'Students', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Lecturers'), ['controller' => 'Lecturers', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Lecturer'), ['controller' => 'Lecturers', 'action' => 'add']) ?> </li>
+    </ul>
+</nav>
+<div class="attachments view large-9 medium-8 columns content">
+    <h3><?= h($attachment->name) ?></h3>
+    <table class="vertical-table">
+        <tr>
+            <th scope="row"><?= __('Type') ?></th>
+            <td><?= h($attachment->type) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Created By') ?></th>
+            <td><?= h($attachment->created_by) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Last Modified By') ?></th>
+            <td><?= h($attachment->last_modified_by) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Student') ?></th>
+            <td><?= $attachment->has('student') ? $this->Html->link($attachment->student->id, ['controller' => 'Students', 'action' => 'view', $attachment->student->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Lecturer') ?></th>
+            <td><?= $attachment->has('lecturer') ? $this->Html->link($attachment->lecturer->title, ['controller' => 'Lecturers', 'action' => 'view', $attachment->lecturer->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($attachment->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Created') ?></th>
+            <td><?= h($attachment->created) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Modified') ?></th>
+            <td><?= h($attachment->modified) ?></td>
+        </tr>
+    </table>
+    <div class="row">
+        <h4><?= __('Name') ?></h4>
+        <?= $this->Text->autoParagraph(h($attachment->name)); ?>
+    </div>
+</div>
