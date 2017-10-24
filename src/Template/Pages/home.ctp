@@ -54,6 +54,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 </header>
 
 <div class="row">
+    <div class="columns large-2">
+    </div>
+    <div class="columns large-10">
+        <h1>This is supposed to be main page</h1>
+    </div>
+</div>
+<!-- <div class="row">
     <div class="columns large-12">
         <div class="ctp-warning alert text-center">
             <p>Please be aware that this page will not be shown if you turn off debug mode unless you replace src/Template/Pages/home.ctp with your own version.</p>
@@ -67,7 +74,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 </li>
             </ul>
         </div>
-        <?php Debugger::checkSecurityKeys(); ?>
+        <?php /* Debugger::checkSecurityKeys(); ?>
     </div>
 </div>
 
@@ -161,7 +168,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <li class="bullet success">DebugKit is loaded.</li>
         <?php else : ?>
             <li class="bullet problem">DebugKit is NOT loaded. You need to either install pdo_sqlite, or define the "debug_kit" connection name.</li>
-        <?php endif; ?>
+        <?php endif; */?>
         </ul>
     </div>
     <hr />
@@ -272,7 +279,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             </li>
         </ul>
     </div>
-</div>
+</div> -->
 
 </body>
 </html>
