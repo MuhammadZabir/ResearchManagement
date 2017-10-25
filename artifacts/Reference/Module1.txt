@@ -1,0 +1,14 @@
+Module 1
+	- Register and Login Page
+ 		- Able to register as Student, Lecturer and Staff. (Refer to Students, Lecturers and Staffs)
+		- Do take note on Not Null column of the table correspond.
+		- Student register would automatically created thesis as well. (Refer to Theses)
+		- Student that been assign supervisor/co would create supervisor. (Refer to Supervisors)
+
+	- Roles
+		- Based on Student, Lecturer and Staff
+		- Staff has advanced role. (Refer to column 'rank' in Staffs)
+
+	- User Profile Management
+		- Able to update the user profile for Student, Lecturer and Staff.
+		- Staff and Student able to assign supervisor.

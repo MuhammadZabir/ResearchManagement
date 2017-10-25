@@ -30,6 +30,7 @@
                 <th scope="col"><?= $this->Paginator->sort('field_of_study') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status_drp') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('count_drp') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('count_mock_viva') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status_mock_viva') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('count_viva') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status_viva') ?></th>
@@ -51,6 +52,7 @@
                 <td><?= h($thesis->field_of_study) ?></td>
                 <td><?= h($thesis->status_drp) ?></td>
                 <td><?= $this->Number->format($thesis->count_drp) ?></td>
+                <td><?= $this->Number->format($thesis->count_mock_viva) ?></td>
                 <td><?= h($thesis->status_mock_viva) ?></td>
                 <td><?= $this->Number->format($thesis->count_viva) ?></td>
                 <td><?= h($thesis->status_viva) ?></td>

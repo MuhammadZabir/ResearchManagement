@@ -1,0 +1,13 @@
+Module 3
+	- Intention of Submission of Thesis
+		- Staff require to set the datetime and status of the Submission of Thesis. (Refer to column 'status_to_submit' and 'submission_of_thesis' in Theses)
+		- DRP need to be completed in order to proceed to Intention of Submission of Thesis. (Refer to Rdp_logs)
+	- Mock Viva
+		- Mock Viva will be done multiple times within the time before the Submission of Thesis.
+		- Staff require to set the Mock Viva for the student. (Refer to Mock_viva_logs)
+		- Staff require to set the examiner for the Mock Viva. (Refer to Examiners)
+		- Mock Viva need to be counted. (Refer to the column 'count_mock_viva' in Theses)
+		- Examiner required to set the status and comment of the Mock Viva. (Refer to Mock_viva_logs)
+	- Submission of Thesis
+		- Staff require to set the status of the Submission of Thesis. (Refer to column 'status_to_submit' in Theses)
+		- Staff require to set a new datetime for Submission of Thesis if the student fail to submit. (Refer to column 'submission_of_thesis' in Theses)

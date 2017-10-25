@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `uitmhea` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `uitmhea`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: uitmhea
@@ -336,6 +338,7 @@ CREATE TABLE `theses` (
   `description` longtext,
   `status_drp` varchar(50) DEFAULT NULL,
   `count_drp` int(11) DEFAULT NULL,
+  `count_mock_viva` int(11) DEFAULT NULL,
   `status_mock_viva` varchar(50) DEFAULT NULL,
   `count_viva` int(11) DEFAULT NULL,
   `status_viva` varchar(50) DEFAULT NULL,
@@ -442,4 +445,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-20 10:46:31
+-- Dump completed on 2017-10-25 12:40:15

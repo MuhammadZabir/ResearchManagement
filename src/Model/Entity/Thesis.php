@@ -12,6 +12,7 @@ use Cake\ORM\Entity;
  * @property string $description
  * @property string $status_drp
  * @property int $count_drp
+ * @property int $count_mock_viva
  * @property string $status_mock_viva
  * @property int $count_viva
  * @property string $status_viva
@@ -47,6 +48,7 @@ class Thesis extends Entity
         'description' => true,
         'status_drp' => true,
         'count_drp' => true,
+        'count_mock_viva' => true,
         'status_mock_viva' => true,
         'count_viva' => true,
         'status_viva' => true,

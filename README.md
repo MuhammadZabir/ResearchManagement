@@ -16,7 +16,7 @@ First Step: Download Project
 Second Step: Construct Database
 - Download your choice of database. Technically both are the same no issue. I had tried both.
 - Install it into your environment. Make your default username/password as root/root.
-- Go to <projectfolder>/artifacts/database and import in Dump20171020.sql into the database to build your structure.
+- Go to <projectfolder>/artifacts/database and import in Dump20171025.sql into the database to build your structure.
 
 Third Step: Run
 - Run cmd or terminal.
@@ -24,6 +24,10 @@ Third Step: Run
 - Run the command $ cake server.
 - Open browser and go to http://localhost:8765.
 
+### Warn
+Do not ever push anything related to <projectfolder>/config and <projectfolder>/vendor and <projectfolder>/src/Model/Table
+
+For further information regarding your modules please do refer to <projectfolder>/artifacts/Reference.
 Any enquiries do ask your team lead or me.
 
 -Zabir-

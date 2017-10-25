@@ -27,13 +27,14 @@ class ThesesTableTest extends TestCase
         'app.theses',
         'app.students',
         'app.users',
-        'app.attachments',
         'app.lecturers',
+        'app.attachments',
         'app.examiners',
         'app.drp_logs',
         'app.mock_viva_logs',
         'app.viva_logs',
-        'app.supervisors'
+        'app.supervisors',
+        'app.staffs'
     ];
 
     /**

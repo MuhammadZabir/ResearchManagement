@@ -71,6 +71,10 @@
             <td><?= $this->Number->format($thesis->count_drp) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Count Mock Viva') ?></th>
+            <td><?= $this->Number->format($thesis->count_mock_viva) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Count Viva') ?></th>
             <td><?= $this->Number->format($thesis->count_viva) ?></td>
         </tr>

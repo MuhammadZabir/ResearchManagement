@@ -30,6 +30,7 @@
             echo $this->Form->control('description');
             echo $this->Form->control('status_drp');
             echo $this->Form->control('count_drp');
+            echo $this->Form->control('count_mock_viva');
             echo $this->Form->control('status_mock_viva');
             echo $this->Form->control('count_viva');
             echo $this->Form->control('status_viva');

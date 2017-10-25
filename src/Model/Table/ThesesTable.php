@@ -95,6 +95,10 @@ class ThesesTable extends Table
             ->allowEmpty('count_drp');
 
         $validator
+            ->integer('count_mock_viva')
+            ->allowEmpty('count_mock_viva');
+
+        $validator
             ->scalar('status_mock_viva')
             ->allowEmpty('status_mock_viva');
 

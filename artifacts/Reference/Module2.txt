@@ -1,0 +1,14 @@
+Module 2
+	- Defense Research Proposal (DRP)
+		- The maximum amount that student allow to DRP would be 3 tries. (Refer to column 'count_drp' in Theses)
+		- Student is required to do the first DRP within the time limit based on the mod of the student. (Refer to column 'mode' in Students)
+			- Full Time Master => Within 6 months after registration
+			- Part Time Master => Within 12 months after registration
+			- Full Time PhD => Within 12 months after registration
+			- Part Time PhD => Within 18 months after registration
+		- Student required to go IGS and TIE course for before able to take DRP. (Refer to column 'igs' and 'tie' in Students)
+		- Staff required to assign the examiner and datetime for the DRP. (Refer to Examiner and Drp_logs)
+		- Examiner would need to set the status of the DRP and comment. (Refer to Drp_logs)
+	
+	- Colloquium (Need further discussion)
+		- The student required to enter colloquium every semester from first until fourth.
