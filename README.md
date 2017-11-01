@@ -16,7 +16,7 @@ First Step: Download Project
 Second Step: Construct Database
 - Download your choice of database. Technically both are the same no issue. I had tried both.
 - Install it into your environment. Make your default username/password as root/root.
-- Go to <projectfolder>/artifacts/database and import in Dump20171025.sql into the database to build your structure.
+- Go to <projectfolder>/artifacts/database and import in Dump20171102.sql into the database to build your structure.
 
 Third Step: Run
 - Run cmd or terminal.
