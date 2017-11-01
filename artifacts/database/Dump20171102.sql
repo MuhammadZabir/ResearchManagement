@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `attachments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attachments` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` longtext NOT NULL,
   `type` varchar(50) DEFAULT NULL,
   `created_by` varchar(50) NOT NULL,
@@ -35,21 +35,12 @@ CREATE TABLE `attachments` (
   `student_id` bigint(10) DEFAULT NULL,
   `lecturer_id` bigint(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `student_attachment_id_idx` (`student_id`),
   KEY `lecturer_attachment_id_idx` (`lecturer_id`),
+  KEY `student_attachment_id_idx` (`student_id`),
   CONSTRAINT `lecturer_attachment_id` FOREIGN KEY (`lecturer_id`) REFERENCES `lecturers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `student_attachment_id` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `attachments`
---
-
-LOCK TABLES `attachments` WRITE;
-/*!40000 ALTER TABLE `attachments` DISABLE KEYS */;
-/*!40000 ALTER TABLE `attachments` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `configurations`
@@ -59,21 +50,12 @@ DROP TABLE IF EXISTS `configurations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `configurations` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `value` longtext,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `configurations`
---
-
-LOCK TABLES `configurations` WRITE;
-/*!40000 ALTER TABLE `configurations` DISABLE KEYS */;
-/*!40000 ALTER TABLE `configurations` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `drp_logs`
@@ -83,7 +65,7 @@ DROP TABLE IF EXISTS `drp_logs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `drp_logs` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `schedule_date` datetime NOT NULL,
   `comment` longtext,
   `result_status` varchar(50) DEFAULT NULL,
@@ -99,15 +81,6 @@ CREATE TABLE `drp_logs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `drp_logs`
---
-
-LOCK TABLES `drp_logs` WRITE;
-/*!40000 ALTER TABLE `drp_logs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `drp_logs` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `examiners`
 --
 
@@ -115,7 +88,7 @@ DROP TABLE IF EXISTS `examiners`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `examiners` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `created_by` varchar(50) NOT NULL,
   `created` datetime NOT NULL,
   `last_modified_by` varchar(50) DEFAULT NULL,
@@ -126,24 +99,15 @@ CREATE TABLE `examiners` (
   `viva_log_id` bigint(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lecturer_examiner_id_idx` (`lecturer_id`),
-  KEY `mock_viva_log_examiner_id_idx` (`mock_viva_log_id`),
   KEY `drp_log_examiner_id_idx` (`drp_log_id`),
+  KEY `mock_viva_log_examiner_id_idx` (`mock_viva_log_id`),
   KEY `viva_log_examiner_id_idx` (`viva_log_id`),
-  CONSTRAINT `drp_log_examiner_id` FOREIGN KEY (`drp_log_id`) REFERENCES `drp_logs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `drp_log_examiner_id` FOREIGN KEY (`drp_log_id`) REFERENCES `examiners` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `lecturer_examiner_id` FOREIGN KEY (`lecturer_id`) REFERENCES `lecturers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `mock_viva_log_examiner_id` FOREIGN KEY (`mock_viva_log_id`) REFERENCES `mock_viva_logs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `viva_log_examiner_id` FOREIGN KEY (`viva_log_id`) REFERENCES `viva_logs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `examiners`
---
-
-LOCK TABLES `examiners` WRITE;
-/*!40000 ALTER TABLE `examiners` DISABLE KEYS */;
-/*!40000 ALTER TABLE `examiners` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `lecturers`
@@ -153,7 +117,7 @@ DROP TABLE IF EXISTS `lecturers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `lecturers` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `lecturer_id` varchar(50) DEFAULT NULL,
   `title` varchar(50) DEFAULT NULL,
   `internal` bit(1) NOT NULL,
@@ -175,15 +139,6 @@ CREATE TABLE `lecturers` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `lecturers`
---
-
-LOCK TABLES `lecturers` WRITE;
-/*!40000 ALTER TABLE `lecturers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `lecturers` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `mock_viva_logs`
 --
 
@@ -191,7 +146,7 @@ DROP TABLE IF EXISTS `mock_viva_logs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mock_viva_logs` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `schedule_date` datetime NOT NULL,
   `comment` longtext,
   `result_status` varchar(50) DEFAULT NULL,
@@ -207,15 +162,6 @@ CREATE TABLE `mock_viva_logs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mock_viva_logs`
---
-
-LOCK TABLES `mock_viva_logs` WRITE;
-/*!40000 ALTER TABLE `mock_viva_logs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mock_viva_logs` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `staffs`
 --
 
@@ -223,7 +169,7 @@ DROP TABLE IF EXISTS `staffs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `staffs` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `staff_id` varchar(50) NOT NULL,
   `rank` varchar(50) DEFAULT NULL,
   `contact_mobile` varchar(20) DEFAULT NULL,
@@ -236,19 +182,10 @@ CREATE TABLE `staffs` (
   `user_id` bigint(10) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `staffId_UNIQUE` (`staff_id`),
-  KEY `user_id_idx` (`user_id`),
+  KEY `user_staff_id_idx` (`user_id`),
   CONSTRAINT `user_staff_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `staffs`
---
-
-LOCK TABLES `staffs` WRITE;
-/*!40000 ALTER TABLE `staffs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `staffs` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `students`
@@ -258,7 +195,7 @@ DROP TABLE IF EXISTS `students`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `students` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `student_id` varchar(50) NOT NULL,
   `mode` int(11) NOT NULL,
   `course_code` varchar(20) NOT NULL,
@@ -277,19 +214,10 @@ CREATE TABLE `students` (
   `user_id` bigint(10) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `student_id_UNIQUE` (`student_id`),
-  KEY `user_id_idx` (`user_id`),
+  KEY `user_student_id_idx` (`user_id`),
   CONSTRAINT `user_student_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `students`
---
-
-LOCK TABLES `students` WRITE;
-/*!40000 ALTER TABLE `students` DISABLE KEYS */;
-/*!40000 ALTER TABLE `students` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `supervisors`
@@ -299,7 +227,7 @@ DROP TABLE IF EXISTS `supervisors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `supervisors` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `type` varchar(50) NOT NULL,
   `created_by` varchar(50) NOT NULL,
   `created` datetime NOT NULL,
@@ -309,20 +237,11 @@ CREATE TABLE `supervisors` (
   `thesis_id` bigint(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lecturer_supervisor_id_idx` (`lecturer_id`),
-  KEY `lecturer_thesis_id_idx` (`thesis_id`),
+  KEY `thesis_supervisor_id_idx` (`thesis_id`),
   CONSTRAINT `lecturer_supervisor_id` FOREIGN KEY (`lecturer_id`) REFERENCES `lecturers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `lecturer_thesis_id` FOREIGN KEY (`thesis_id`) REFERENCES `theses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `thesis_supervisor_id` FOREIGN KEY (`thesis_id`) REFERENCES `theses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `supervisors`
---
-
-LOCK TABLES `supervisors` WRITE;
-/*!40000 ALTER TABLE `supervisors` DISABLE KEYS */;
-/*!40000 ALTER TABLE `supervisors` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `theses`
@@ -332,7 +251,7 @@ DROP TABLE IF EXISTS `theses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `theses` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `field_of_study` varchar(100) NOT NULL,
   `description` longtext,
@@ -350,19 +269,10 @@ CREATE TABLE `theses` (
   `modified` datetime DEFAULT NULL,
   `student_id` bigint(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `student_thesis_id_idx` (`student_id`),
+  KEY `student_attachment_id_idx` (`student_id`),
   CONSTRAINT `student_thesis_id` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `theses`
---
-
-LOCK TABLES `theses` WRITE;
-/*!40000 ALTER TABLE `theses` DISABLE KEYS */;
-/*!40000 ALTER TABLE `theses` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
@@ -372,14 +282,14 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL,
   `password_hash` varchar(60) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `image_url` varchar(256) DEFAULT NULL,
-  `activated` bit(1) NOT NULL,
+  `activated` tinyint(1) NOT NULL,
   `lang_key` varchar(5) DEFAULT NULL,
   `activation_key` varchar(20) DEFAULT NULL,
   `reset_key` varchar(20) DEFAULT NULL,
@@ -391,17 +301,8 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `login_UNIQUE` (`login`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `viva_logs`
@@ -411,7 +312,7 @@ DROP TABLE IF EXISTS `viva_logs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `viva_logs` (
-  `id` bigint(10) NOT NULL,
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `schedule_date` datetime NOT NULL,
   `comment` longtext,
   `result_status` varchar(50) DEFAULT NULL,
@@ -426,15 +327,6 @@ CREATE TABLE `viva_logs` (
   CONSTRAINT `thesis_viva_log_id` FOREIGN KEY (`thesis_id`) REFERENCES `theses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `viva_logs`
---
-
-LOCK TABLES `viva_logs` WRITE;
-/*!40000 ALTER TABLE `viva_logs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `viva_logs` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -445,4 +337,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-25 12:40:15
+-- Dump completed on 2017-11-02  0:32:21
